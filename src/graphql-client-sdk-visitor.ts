@@ -33,6 +33,7 @@ export class GraphQLClientSDKVisitor extends ClientSideBaseVisitor<
     const imports = ["import { GraphQLClient, KikstartGraphQLClientConfig } from 'kikstart-graphql-client';"]
     const hasOperations = this._collectedOperations.length > 0
 
+    /* istanbul ignore if */
     if (!hasOperations) {
       return baseImports
     }
@@ -70,7 +71,7 @@ export class GraphQLClientSDKVisitor extends ClientSideBaseVisitor<
         const isSubscription = o.operationType === 'Subscription'
         const methodName = `${isSubscription ? '' : 'async '}${camelCase(o.node.name.value)}`
         const methodParams = `variables${optionalVariables ? '?' : ''}: ${o.operationVariablesTypes}`
-        const methodCommand = `this.client.run${o.operationType}(${doc}, ${methodParams})`
+        const methodCommand = `this.client.run${o.operationType}(${doc}, variables)`
         const methodBody = isSubscription
           ? `return ${methodCommand}`
           : `const { data, error } = await ${methodCommand};
@@ -83,12 +84,14 @@ export class GraphQLClientSDKVisitor extends ClientSideBaseVisitor<
       })
       .map((s) => indentMultiline(s, 2))
 
-    return `export class GraphQLClientSDK {
-    client: GraphQLClient;
-    constructor(config: KikstartGraphQLClientConfig) {
-      this.client = new GraphQLClient(config);
-    }
-${allPossibleActions.join('\n\n')}
-}`
+    return [
+      `export class GraphQLClientSDK {`,
+      `client: GraphQLClient;`,
+      `constructor(config: KikstartGraphQLClientConfig) {`,
+      `  this.client = new GraphQLClient(config);`,
+      `}`,
+      allPossibleActions.join('\n\n'),
+      `}`,
+    ].join('\n')
   }
 }

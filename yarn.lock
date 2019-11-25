@@ -604,7 +604,38 @@
     import-from "3.0.0"
     tslib "1.10.0"
 
-"@graphql-codegen/visitor-plugin-common@^1.8.3":
+"@graphql-codegen/testing@^1.8.3":
+  version "1.8.3"
+  resolved "https://registry.yarnpkg.com/@graphql-codegen/testing/-/testing-1.8.3.tgz#a0c57aa051d681d54a78e824b80e10676ff1e083"
+  integrity sha512-DCZgZftMb18InfMTjzKSjl8O4x52dBOo5eUAvUZKhytm1TrPcBgoetTZbXrMZrBnp+zEgpodYDxoDpuuEAO6qg==
+  dependencies:
+    "@graphql-codegen/plugin-helpers" "1.8.3"
+    common-tags "1.8.0"
+    lz-string "1.4.4"
+    open "7.0.0"
+    tslib "1.10.0"
+
+"@graphql-codegen/typescript-operations@^1.8.3":
+  version "1.8.3"
+  resolved "https://registry.yarnpkg.com/@graphql-codegen/typescript-operations/-/typescript-operations-1.8.3.tgz#8be109d474528c21a4f0420d36278f8d1009365c"
+  integrity sha512-35nmisibtnp/aO/X6oBJiWy9ysuKFvU2fsf1XEtKFqntIm5TC9cWMYX0wzgHB5XnJvFSy1JrF5882cjRVQrp4g==
+  dependencies:
+    "@graphql-codegen/plugin-helpers" "1.8.3"
+    "@graphql-codegen/typescript" "1.8.3"
+    "@graphql-codegen/visitor-plugin-common" "1.8.3"
+    tslib "1.10.0"
+
+"@graphql-codegen/typescript@1.8.3", "@graphql-codegen/typescript@^1.8.3":
+  version "1.8.3"
+  resolved "https://registry.yarnpkg.com/@graphql-codegen/typescript/-/typescript-1.8.3.tgz#600c2d7931f8a5433919dea5483adb9ba0aba65b"
+  integrity sha512-Hw8b/iu/ZEAK22G3YmU//98jfmYN835ZPAx3w4c/reeMv4syfAoUlXrSKCbvfi/TOzVRzK/FjYKa0h5dKMoyPA==
+  dependencies:
+    "@graphql-codegen/plugin-helpers" "1.8.3"
+    "@graphql-codegen/visitor-plugin-common" "1.8.3"
+    auto-bind "3.0.0"
+    tslib "1.10.0"
+
+"@graphql-codegen/visitor-plugin-common@1.8.3", "@graphql-codegen/visitor-plugin-common@^1.8.3":
   version "1.8.3"
   resolved "https://registry.yarnpkg.com/@graphql-codegen/visitor-plugin-common/-/visitor-plugin-common-1.8.3.tgz#3a3ce7a942839995a6fff01ef959b4c80f4c5d48"
   integrity sha512-Qsh0xh7IpdKZ87moHxeHTTQUD6JD0z3GVbgLWRgkWRpgWciQHs1M+06UGtb32b/YhfQcPG4JfnyJhwiKMNfbjw==
@@ -4150,6 +4181,11 @@ is-wsl@^1.1.0:
   resolved "https://registry.yarnpkg.com/is-wsl/-/is-wsl-1.1.0.tgz#1f16e4aa22b04d1336b66188a66af3c600c3a66d"
   integrity sha1-HxbkqiKwTRM2tmGIpmrzxgDDpm0=
 
+is-wsl@^2.1.0:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/is-wsl/-/is-wsl-2.1.1.tgz#4a1c152d429df3d441669498e2486d3596ebaf1d"
+  integrity sha512-umZHcSrwlDHo2TGMXv0DZ8dIUGunZ2Iv68YZnrmCiBPkZ4aaOhtv7pXJKeki9k3qJ3RJr0cDyitcl5wEH3AYog==
+
 isarray@0.0.1:
   version "0.0.1"
   resolved "https://registry.yarnpkg.com/isarray/-/isarray-0.0.1.tgz#8a18acfca9a8f4177e09abfc6038939b05d1eedf"
@@ -5169,6 +5205,11 @@ lru-cache@^5.1.1:
   dependencies:
     yallist "^3.0.2"
 
+lz-string@1.4.4:
+  version "1.4.4"
+  resolved "https://registry.yarnpkg.com/lz-string/-/lz-string-1.4.4.tgz#c0d8eaf36059f705796e1e344811cf4c498d3a26"
+  integrity sha1-wNjq82BZ9wV5bh40SBHPTEmNOiY=
+
 macos-release@^2.2.0:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/macos-release/-/macos-release-2.3.0.tgz#eb1930b036c0800adebccd5f17bc4c12de8bb71f"
@@ -6037,6 +6078,13 @@ onetime@^5.1.0:
   integrity sha512-5NcSkPHhwTVFIQN+TUqXoS5+dlElHXdpAWu9I0HP20YOtIi+aZ0Ct82jdlILDxjLEAWwvm+qj1m6aEtsDVmm6Q==
   dependencies:
     mimic-fn "^2.1.0"
+
+open@7.0.0:
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/open/-/open-7.0.0.tgz#7e52999b14eb73f90f0f0807fe93897c4ae73ec9"
+  integrity sha512-K6EKzYqnwQzk+/dzJAQSBORub3xlBTxMz+ntpZpH/LyCa1o6KjXhuN+2npAaI9jaSmU3R1Q8NWf4KUWcyytGsQ==
+  dependencies:
+    is-wsl "^2.1.0"
 
 opencollective-postinstall@^2.0.2:
   version "2.0.2"

@@ -17,6 +17,7 @@ export const plugin: PluginFunction<RawClientSideBasePluginConfig> = (
 
   const allFragments: LoadedFragment[] = [
     ...(allAst.definitions.filter((d) => d.kind === Kind.FRAGMENT_DEFINITION) as FragmentDefinitionNode[]).map(
+      /* istanbul ignore next */
       (fragmentDef) => ({
         node: fragmentDef,
         name: fragmentDef.name.value,
@@ -46,6 +47,7 @@ export const validate: PluginValidateFn<any> = async (
   config: RawClientSideBasePluginConfig,
   outputFile: string,
 ) => {
+  /* istanbul ignore next */
   if (extname(outputFile) !== '.ts') {
     throw new Error(`Plugin "graphql-client-sdk" requires extension to be ".ts"!`)
   }
