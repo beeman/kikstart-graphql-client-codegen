@@ -74,9 +74,9 @@ export class GraphQLClientSDKVisitor extends ClientSideBaseVisitor<
         const methodCommand = `this.client.run${o.operationType}(${doc}, variables)`
         const methodBody = isSubscription
           ? `return ${methodCommand}`
-          : `const { data, error } = await ${methodCommand};
-  if (error) {
-    throw error
+          : `const { data, errors } = await ${methodCommand};
+  if (errors) {
+    throw errors
   }
   return data.${camelCase(o.node.name.value)}`
 
