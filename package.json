@@ -1,0 +1,78 @@
+{
+  "name": "kikstart-graphql-client-codegen",
+  "version": "0.0.0-development",
+  "description": "A boilerplate repo for publishing typescript packages to npm",
+  "sideEffects": false,
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
+  "typings": "dist/index.d.ts",
+  "typescript": {
+    "definition": "dist/index.d.ts"
+  },
+  "buildOptions": {
+    "input": "./src/index.ts"
+  },
+  "scripts": {
+    "lint": "eslint './src/**/*.{js,ts,tsx}'",
+    "test": "true # jest",
+    "test:watch": "jest --watchAll",
+    "build": "bob",
+    "watch": "tsc -w",
+    "start": "npm link && nodemon",
+    "semantic-release": "semantic-release"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/beeman/kikstart-graphql-client-codegen.git"
+  },
+  "keywords": [
+    "TypeScript",
+    "Package",
+    "Starter"
+  ],
+  "author": {
+    "name": "Bram Borggreve",
+    "email": "borggreve@gmail.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/beeman/kikstart-graphql-client-codegen/issues"
+  },
+  "homepage": "https://github.com/beeman/kikstart-graphql-client-codegen#readme",
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn lint && npm test",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-push": "yarn lint && npm test"
+    }
+  },
+  "devDependencies": {
+    "@ardatan/bob": "^0.1.4",
+    "@commitlint/cli": "^8.2.0",
+    "@commitlint/config-conventional": "^8.2.0",
+    "@graphql-codegen/core": "^1.8.3",
+    "@types/jest": "^24.0.23",
+    "@types/node": "^12.12.12",
+    "@typescript-eslint/eslint-plugin": "^2.8.0",
+    "@typescript-eslint/parser": "^2.8.0",
+    "eslint": "^6.7.0",
+    "eslint-config-prettier": "^6.7.0",
+    "eslint-plugin-prettier": "^3.1.1",
+    "husky": "^3.1.0",
+    "jest": "^24.9.0",
+    "nodemon": "^1.19.4",
+    "prettier": "^1.19.1",
+    "react": "^16.12.0",
+    "semantic-release": "^15.13.31",
+    "ts-jest": "^24.2.0",
+    "typescript": "^3.7.2"
+  },
+  "files": [
+    "dist/**/*"
+  ],
+  "dependencies": {
+    "@graphql-codegen/plugin-helpers": "^1.8.3",
+    "@graphql-codegen/visitor-plugin-common": "^1.8.3",
+    "graphql": "^14.5.8"
+  }
+}
