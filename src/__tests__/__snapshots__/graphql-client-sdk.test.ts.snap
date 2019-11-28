@@ -289,36 +289,20 @@ client: GraphQLClient;
 constructor(config: KikstartGraphQLClientConfig) {
   this.client = new GraphQLClient(config);
 }
-    async feed(variables?: FeedQueryVariables) {
-    const { data, errors } = await this.client.runQuery(FeedDocument, variables);
-      if (errors) {
-        throw errors
-      }
-      return data.feed
+    feed(variables?: FeedQueryVariables) {
+    return this.client.runQuery(FeedDocument, variables)
     }
 
-    async feed2(variables: Feed2QueryVariables) {
-    const { data, errors } = await this.client.runQuery(Feed2Document, variables);
-      if (errors) {
-        throw errors
-      }
-      return data.feed2
+    feed2(variables: Feed2QueryVariables) {
+    return this.client.runQuery(Feed2Document, variables)
     }
 
-    async feed3(variables?: Feed3QueryVariables) {
-    const { data, errors } = await this.client.runQuery(Feed3Document, variables);
-      if (errors) {
-        throw errors
-      }
-      return data.feed3
+    feed3(variables?: Feed3QueryVariables) {
+    return this.client.runQuery(Feed3Document, variables)
     }
 
-    async feed4(variables?: Feed4QueryVariables) {
-    const { data, errors } = await this.client.runQuery(Feed4Document, variables);
-      if (errors) {
-        throw errors
-      }
-      return data.feed4
+    feed4(variables?: Feed4QueryVariables) {
+    return this.client.runQuery(Feed4Document, variables)
     }
 
     test(variables?: TestSubscriptionVariables) {

@@ -68,19 +68,11 @@ export class GraphQLClientSDKVisitor extends ClientSideBaseVisitor<
           o.node.variableDefinitions.every((v) => v.type.kind !== Kind.NON_NULL_TYPE || !!v.defaultValue)
         const doc = o.documentVariableName
 
-        const isSubscription = o.operationType === 'Subscription'
-        const methodName = `${isSubscription ? '' : 'async '}${camelCase(o.node.name.value)}`
+        const methodName = camelCase(o.node.name.value)
         const methodParams = `variables${optionalVariables ? '?' : ''}: ${o.operationVariablesTypes}`
         const methodCommand = `this.client.run${o.operationType}(${doc}, variables)`
-        const methodBody = isSubscription
-          ? `return ${methodCommand}`
-          : `const { data, errors } = await ${methodCommand};
-  if (errors) {
-    throw errors
-  }
-  return data.${camelCase(o.node.name.value)}`
 
-        return [`${methodName}(${methodParams}) {`, methodBody, '}'].join('\n')
+        return [`${methodName}(${methodParams}) {`, `return ${methodCommand}`, '}'].join('\n')
       })
       .map((s) => indentMultiline(s, 2))
 
