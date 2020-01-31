@@ -65,7 +65,7 @@ describe('graphql-client-dk', () => {
   describe('sdk', () => {
     it('Should generate an SDK class', async () => {
       const config = {}
-      const docs = [{ filePath: '', content: basicDoc }]
+      const docs = [{ filePath: '', document: basicDoc }]
       const result = (await plugin(schema, docs, config, {
         outputFile: 'graphql.ts',
       })) as Types.ComplexPluginOutput
@@ -73,10 +73,10 @@ describe('graphql-client-dk', () => {
       const usage = `
 async function test() {
   const client = new GraphQLClientSDK({
-    uri: '${uri}',  
-    wsUri: '${wsUri}',  
+    uri: '${uri}',
+    wsUri: '${wsUri}',
   });
-  
+
   await client.feed();
   await client.feed3();
   await client.feed4();

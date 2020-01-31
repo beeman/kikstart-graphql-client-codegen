@@ -120,7 +120,7 @@ export type QueryEntryArgs = {
 /** 
  * A repository object from the GitHub API. This uses the exact field names returned by the
  * GitHub API for simplicity, even though the convention for GraphQL is usually to camel case.
- **/
+ */
 export type Repository = {
    __typename?: 'Repository',
   /** Just the name of the repository, e.g. GitHunt-API */
@@ -311,10 +311,10 @@ constructor(config: KikstartGraphQLClientConfig) {
 }
 async function test() {
   const client = new GraphQLClientSDK({
-    uri: 'http://localhost:4567',  
-    wsUri: 'ws://localhost:4567',  
+    uri: 'http://localhost:4567',
+    wsUri: 'ws://localhost:4567',
   });
-  
+
   await client.feed();
   await client.feed3();
   await client.feed4();
