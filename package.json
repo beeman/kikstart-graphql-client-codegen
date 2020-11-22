@@ -67,7 +67,7 @@
     "nodemon": "2.0.6",
     "prettier": "2.2.0",
     "react": "17.0.1",
-    "semantic-release": "17.2.4",
+    "semantic-release": "17.3.0",
     "ts-jest": "26.4.4",
     "typescript": "3.8.3"
   },
